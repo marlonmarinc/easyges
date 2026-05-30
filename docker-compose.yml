@@ -28,6 +28,7 @@ services:
       MYSQL_PASSWORD: easyges123
     volumes:
       - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
 
   phpmyadmin:
     image: phpmyadmin:latest

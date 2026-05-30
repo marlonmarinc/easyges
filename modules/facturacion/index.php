@@ -30,12 +30,10 @@ if ($fecha_fin) {
 }
 
 $stmt = db()->prepare("
-    SELECT f.*, c.nombre as cliente_nombre, c.numero_doc, u.nombre as usuario_nombre,
-           fe.estado_dian, fe.cufe
+    SELECT f.*, c.nombre as cliente_nombre, c.numero_doc, u.nombre as usuario_nombre
     FROM facturas f
     JOIN clientes c ON f.cliente_id = c.id
     JOIN usuarios u ON f.usuario_id = u.id
-    LEFT JOIN facturas_electronicas fe ON f.id = fe.factura_id
     WHERE $where
     ORDER BY f.created_at DESC
     LIMIT 100

@@ -27,20 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Verificar password — las de prueba usan password_verify
         // Los hashes en database.sql corresponden a: admin123, fact123, cont123, cajero123
-        $passwords_prueba = [
-            'admin'       => 'admin123',
-            'contabilidad'=> 'cont123',
-            'cajero'      => 'cajero123',
-        ];
-
         $ok = false;
         if ($user) {
-            // Intento 1: password_verify (hash BCrypt)
-            if (password_verify($password, $user['password'])) {
-                $ok = true;
-            }
-            // Intento 2: contraseñas de prueba en texto plano (fallback)
-            elseif (isset($passwords_prueba[$user['usuario']]) && $passwords_prueba[$user['usuario']] === $password) {
+            if ($password === $user['password']) {
                 $ok = true;
             }
         }

@@ -1,75 +1,23 @@
 <?php
-// ============================================
-// config/permisos.php
-// Sistema de control de acceso por roles
-// ============================================
 
-function getPermisos($rol) {
-    $permisos = [
-        // Dashboard siempre accesible
+function getPermisos() {
+    return [
         'dashboard' => true,
-        
-        // ROLES: administrador, contador, cajero, facturacion, inventario, compras, vendedor
-        
-        // ADMINISTRADOR - Acceso total
-        'facturacion' => [
-            'administrador' => true,
-            'contador' => false,
-            'cajero' => true,
-        ],
-        'inventario' => [
-            'administrador' => true,
-            'contador' => true,
-            'cajero' => false,
-        ],
-        'compras' => [
-            'administrador' => true,
-            'contador' => false,
-            'cajero' => false,
-        ],
-        'clientes' => [
-            'administrador' => true,
-            'contador' => false,
-            'cajero' => false,
-        ],
-        'contabilidad' => [
-            'administrador' => true,
-            'contador' => true,
-            'cajero' => false,
-        ],
-        'admin' => [
-            'administrador' => true,
-            'contador' => false,
-            'cajero' => false,
-        ],
+        'facturacion' => ['admin' => true, 'vendedor' => true, 'facturacion' => true],
+        'inventario'  => ['admin' => true, 'inventario' => true, 'vendedor' => true],
+        'compras'     => ['admin' => true, 'compras' => true],
+        'clientes'    => ['admin' => true, 'vendedor' => true, 'facturacion' => true],
+        'contabilidad'=> ['admin' => true, 'facturacion' => true, 'vendedor' => true],
+        'admin'       => ['admin' => true],
+        'configuracion' => ['admin' => true],
+        'reportes'    => ['admin' => true, 'facturacion' => true, 'vendedor' => true],
     ];
-    
-    return $permisos;
-}
-
-function tieneAcceso($modulo, $rol = null) {
-    if ($rol === null) {
-        $rol = $_SESSION['usuario_rol'] ?? 'invitado';
-    }
-    
-    $permisos = getPermisos($rol);
-    
-    // Si el módulo no está en la lista, permitir acceso por defecto
-    if (!isset($permisos[$modulo])) {
-        return true;
-    }
-    
-    $config = $permisos[$modulo];
-    
-    // Si el rol tiene acceso explícito
-    if (isset($config[$rol]) && $config[$rol] === true) {
-        return true;
-    }
-    
-    return false;
 }
 
 function puedeAccederModulo($modulo) {
+    $permisos = getPermisos();
+    if (!isset($permisos[$modulo])) return true;
+    if ($permisos[$modulo] === true) return true;
     $rol = $_SESSION['usuario_rol'] ?? 'invitado';
-    return tieneAcceso($modulo, $rol);
+    return isset($permisos[$modulo][$rol]) && $permisos[$modulo][$rol] === true;
 }
