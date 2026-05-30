@@ -1,0 +1,17 @@
+# OS
+Thumbs.db
+*.log
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# PHP
+/vendor/
+
+# Project specific
+/config/conexion.php
+/setup_*.php
+*.sql

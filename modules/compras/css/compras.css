@@ -1,0 +1,13 @@
+/* ============================================
+   COMPRAS - Estilos
+   Usando clases del style.css principal
+   ============================================ */
+
+.page-actions { display: flex; gap: .75rem; }
+
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.25rem; border-radius: var(--radius-sm); font-size: .9rem; font-weight: 600; border: none; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-primary { background: var(--blue); color: white; }
+
+.action-btns { display: flex; gap: .35rem; }
+.btn-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; border: none; background: var(--gray-100); color: var(--gray-600); cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-icon:hover { background: var(--teal-light); color: var(--teal); }

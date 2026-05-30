@@ -1,0 +1,8 @@
+/* ============================================
+   CONTABILIDAD - Estilos
+   Usando clases del style.css principal
+   ============================================ */
+
+.stat-change { font-size: .8rem; color: var(--gray-400); margin-top: .25rem; }
+.stat-change.positive { color: var(--green); }
+.stat-change.negative { color: var(--red); }

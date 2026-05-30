@@ -1,0 +1,469 @@
+/* ============================================
+   FACTURACIÓN - Estilos adicionales
+   Usando clases del style.css principal
+   ============================================ */
+
+/* ---------- BOTONES ---------- */
+.page-actions { display: flex; gap: .75rem; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.btn-teal { background: var(--teal); color: white; }
+.btn-teal:hover { background: var(--teal-dark); }
+.btn-primary { background: var(--blue); color: white; }
+.btn-primary:hover { background: #2563eb; }
+.btn-secondary { background: var(--gray-600); color: white; }
+.btn-secondary:hover { background: var(--gray-800); }
+.btn-outline { background: transparent; border: 1px solid var(--gray-300); color: var(--gray-600); }
+.btn-outline:hover { background: var(--gray-100); }
+
+.text-muted { color: var(--gray-400); }
+
+.action-btns { display: flex; gap: .35rem; }
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: none;
+    background: var(--gray-100);
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.btn-icon:hover { background: var(--teal-light); color: var(--teal); }
+.btn-icon.btn-danger:hover { background: #fee2e2; color: var(--red); }
+
+/* ---------- FILTROS ---------- */
+.filters-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.filters-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-group { flex: 1; min-width: 150px; }
+
+.filter-input, .filter-select {
+    width: 100%;
+    padding: .65rem 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+    background: white;
+}
+
+.filter-input:focus, .filter-select:focus {
+    outline: none;
+    border-color: var(--teal);
+}
+
+/* Badges DIAN */
+.badge-aceptada { background: #dcfce7; color: #166534; }
+.badge-enviada { background: #dbeafe; color: #1e40af; }
+.badge-rechazada { background: #fee2e2; color: #991b1b; }
+.badge-recibida { background: #fef3c7; color: #92400e; }
+
+/* ============================================
+   POS - Punto de Venta
+   ============================================ */
+
+.pos-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 1.5rem;
+    height: calc(100vh - 180px);
+}
+
+.pos-products {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    overflow-y: auto;
+    box-shadow: var(--shadow-sm);
+}
+
+.pos-products-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.pos-products-header input {
+    flex: 1;
+    padding: .75rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+}
+
+.pos-products-header input:focus {
+    outline: none;
+    border-color: var(--teal);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.product-card {
+    background: var(--gray-50);
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.product-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.product-card.selected {
+    border-color: var(--teal);
+    background: var(--teal-light);
+}
+
+.product-name {
+    font-weight: 600;
+    font-size: .9rem;
+    margin-bottom: .35rem;
+    color: var(--gray-800);
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--teal);
+}
+
+.product-stock {
+    font-size: .75rem;
+    color: var(--gray-400);
+    margin-top: .25rem;
+}
+
+.pos-cart {
+    background: white;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.cart-header {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h3 { margin: 0; font-size: 1.1rem; }
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    margin-bottom: .5rem;
+}
+
+.cart-item-info { flex: 1; }
+.cart-item-name { font-weight: 600; font-size: .9rem; }
+.cart-item-price { font-size: .85rem; color: var(--gray-600); }
+
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-item-subtotal {
+    font-weight: 700;
+    min-width: 70px;
+    text-align: right;
+}
+
+.cart-item-remove {
+    color: var(--red);
+    cursor: pointer;
+    margin-left: .5rem;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--gray-400);
+}
+
+.cart-empty i { font-size: 3rem; margin-bottom: 1rem; display: block; opacity: .3; }
+
+.cart-footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 1.25rem;
+}
+
+.cart-totals { margin-bottom: 1rem; }
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: .35rem 0;
+    font-size: .9rem;
+}
+
+.cart-total-row.grand-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-top: 2px solid var(--gray-300);
+    padding-top: .75rem;
+    margin-top: .5rem;
+}
+
+.cart-actions { display: flex; gap: .75rem; }
+.cart-actions .btn { flex: 1; justify-content: center; }
+
+/* ============================================
+   NUEVA FACTURA / FORMULARIO
+   ============================================ */
+
+.factura-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.factura-section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.factura-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: var(--gray-800);
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group { flex: 1; }
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: .85rem;
+    margin-bottom: .35rem;
+    color: var(--gray-700);
+}
+
+.form-control {
+    width: 100%;
+    padding: .65rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0,180,216,.1);
+}
+
+/* Tabla de items usando estilos globales */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.items-table thead {
+    background: var(--teal);
+}
+
+.items-table th {
+    background: var(--teal);
+    color: white;
+    padding: .75rem;
+    text-align: left;
+    font-size: .78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.items-table td {
+    padding: .75rem;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.items-table tr:hover td {
+    background: var(--gray-50);
+}
+
+.items-table input,
+.items-table select {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    font-size: .9rem;
+}
+
+.items-table input:focus,
+.items-table select:focus {
+    border-color: var(--teal);
+    outline: none;
+}
+
+.btn-add-item {
+    margin-top: 1rem;
+    width: 100%;
+    padding: .75rem;
+    background: var(--gray-100);
+    border: 2px dashed var(--gray-300);
+    border-radius: var(--radius-sm);
+    color: var(--gray-600);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-add-item:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-light);
+}
+
+/* Total box usando estilo del dashboard */
+.total-box {
+    text-align: right;
+    padding: 1.25rem;
+    background: var(--sidebar-bg);
+    border-radius: var(--radius);
+    margin-top: 1.25rem;
+    color: white;
+}
+
+.total-box .row {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    font-size: .9rem;
+}
+
+.total-box .row span:first-child {
+    color: rgba(255,255,255,.7);
+}
+
+.total-box .row span:last-child {
+    font-weight: 600;
+}
+
+.total-box .row.grand-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-top: 2px solid rgba(255,255,255,.2);
+    margin-top: .75rem;
+    padding-top: .75rem;
+    color: var(--teal-light);
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+    .factura-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .pos-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .pos-cart {
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .filters-form {
+        flex-direction: column;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+}

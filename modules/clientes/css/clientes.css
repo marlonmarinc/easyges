@@ -1,0 +1,37 @@
+/* ============================================
+   CLIENTES - Estilos
+   Usando clases del style.css principal
+   ============================================ */
+
+.page-actions { display: flex; gap: .75rem; }
+
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.25rem; border-radius: var(--radius-sm); font-size: .9rem; font-weight: 600; border: none; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-primary { background: var(--blue); color: white; }
+.btn-primary:hover { background: #2563eb; }
+.btn-secondary { background: var(--gray-600); color: white; }
+.btn-outline { background: transparent; border: 1px solid var(--gray-300); color: var(--gray-600); }
+
+.filters-card { background: white; border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1.25rem; box-shadow: var(--shadow-sm); }
+.filters-form { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.filter-group { flex: 1; min-width: 150px; }
+.filter-input { width: 100%; padding: .65rem 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); font-size: .9rem; }
+.filter-input:focus { outline: none; border-color: var(--teal); }
+
+.action-btns { display: flex; gap: .35rem; }
+.btn-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; border: none; background: var(--gray-100); color: var(--gray-600); cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-icon:hover { background: var(--teal-light); color: var(--teal); }
+
+/* Formulario */
+.cliente-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-section { background: white; border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-sm); }
+.form-section h3 { margin: 0 0 1rem 0; font-size: 1rem; color: var(--gray-800); padding-bottom: .75rem; border-bottom: 1px solid var(--gray-200); }
+.form-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.form-group { flex: 1; }
+.form-group label { display: block; font-weight: 600; font-size: .85rem; margin-bottom: .35rem; color: var(--gray-700); }
+.form-control { width: 100%; padding: .65rem; border: 1px solid var(--gray-300); border-radius: var(--radius-sm); font-size: .9rem; }
+.form-control:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,180,216,.1); }
+.form-actions { grid-column: 1 / -1; display: flex; gap: 1rem; justify-content: flex-end; padding-top: 1rem; }
+
+@media (max-width: 768px) {
+    .cliente-form { grid-template-columns: 1fr; }
+}
