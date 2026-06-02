@@ -44,5 +44,5 @@ docker compose up -d
 
 - PHP 8.2
 - MySQL 8.0
-- HTML/CSS/JavaScript vanilla
+- HTML/CSS/JavaScript vanila
 - Docker
