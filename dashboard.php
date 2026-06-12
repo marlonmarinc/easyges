@@ -134,6 +134,12 @@ $rol_label = $roles_labels[$_SESSION['usuario_rol']] ?? $_SESSION['usuario_rol']
             <span>Contabilidad</span>
         </a>
         <?php endif; ?>
+        <?php if (puedeAccederModulo('admin')): ?>
+        <a href="modules/admin/index.php" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Empresa</span>
+        </a>
+        <?php endif; ?>
     </nav>
 
     <div class="sidebar-footer">

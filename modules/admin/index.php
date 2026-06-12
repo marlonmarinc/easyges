@@ -25,12 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $regimen = $_POST['regimen'] ?? 'comun';
     $prefijo_factura = trim($_POST['prefijo_factura'] ?? 'FEP');
+    $logo = $empresa['logo'];
+
+    if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+        $ext = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
+        $nombreLogo = 'logo_' . time() . '.' . $ext;
+        $rutaLogo = '../../uploads/' . $nombreLogo;
+        if (move_uploaded_file($_FILES['logo']['tmp_name'], $rutaLogo)) {
+            $logo = 'uploads/' . $nombreLogo;
+        }
+    }
 
     if (empty($nit) || empty($nombre)) {
         $error = 'El NIT y nombre son requeridos';
     } else {
-        $stmt = db()->prepare("UPDATE empresa SET nit=?, nombre=?, nombre_comercial=?, direccion=?, ciudad=?, departamento=?, telefono=?, email=?, regimen=?, prefijo_factura=? WHERE id=?");
-        $stmt->execute([$nit, $nombre, $nombre_comercial, $direccion, $ciudad, $departamento, $telefono, $email, $regimen, $prefijo_factura, $empresa['id']]);
+        $stmt = db()->prepare("UPDATE empresa SET nit=?, nombre=?, nombre_comercial=?, direccion=?, ciudad=?, departamento=?, telefono=?, email=?, regimen=?, prefijo_factura=?, logo=? WHERE id=?");
+        $stmt->execute([$nit, $nombre, $nombre_comercial, $direccion, $ciudad, $departamento, $telefono, $email, $regimen, $prefijo_factura, $logo, $empresa['id']]);
         $msg = 'Datos guardados correctamente';
         $stmt = db()->query("SELECT * FROM empresa LIMIT 1");
         $empresa = $stmt->fetch();
@@ -77,9 +87,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if ($msg): ?><div class="alert alert-success"><i class="fa-solid fa-check-circle"></i> <?= $msg ?></div><?php endif; ?>
         <?php if ($error): ?><div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i> <?= $error ?></div><?php endif; ?>
         
-        <form method="POST" class="config-form">
+        <form method="POST" class="config-form" enctype="multipart/form-data">
             <div class="config-section">
                 <h3><i class="fa-solid fa-building"></i> Datos de la Empresa</h3>
+                <div class="form-group" style="margin-bottom:1rem;">
+                    <label>Logo de la Empresa</label>
+                    <?php if (!empty($empresa['logo'])): ?>
+                    <div style="margin-bottom:.5rem;"><img src="../../<?= $empresa['logo'] ?>" alt="Logo" style="max-height:80px;"></div>
+                    <?php endif; ?>
+                    <input type="file" name="logo" class="form-control" accept="image/*">
+                </div>
                 <div class="form-row">
                     <div class="form-group"><label>NIT *</label><input type="text" name="nit" class="form-control" value="<?= htmlspecialchars($empresa['nit'] ?? '') ?>" required></div>
                     <div class="form-group"><label>Régimen</label><select name="regimen" class="form-control"><option value="comun" <?= ($empresa['regimen'] ?? '')=='comun'?'selected':'' ?>>Régimen Común</option><option value="simplificado" <?= ($empresa['regimen'] ?? '')=='simplificado'?'selected':'' ?>>Régimen Simplificado</option></select></div>

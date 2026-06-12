@@ -124,6 +124,7 @@ CREATE TABLE IF NOT EXISTS empresa (
     email           VARCHAR(120),
     regimen         VARCHAR(30)   DEFAULT 'comun',
     prefijo_factura VARCHAR(10)   DEFAULT 'FEP',
+    logo            VARCHAR(255)  DEFAULT NULL,
     created_at      TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
 );
 
