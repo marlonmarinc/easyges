@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nombre        VARCHAR(100)  NOT NULL,
     usuario       VARCHAR(50)   NOT NULL UNIQUE,
     password      VARCHAR(255)  NOT NULL,
-    rol           ENUM('admin','facturacion','inventario','compras','vendedor') NOT NULL DEFAULT 'vendedor',
+    rol           ENUM('admin','facturacion','inventario','compras','vendedor','contabilidad','cajero') NOT NULL DEFAULT 'vendedor',
     activo        TINYINT(1)    DEFAULT 1,
     ultimo_login  DATETIME      NULL,
     created_at    TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
@@ -276,11 +276,13 @@ CREATE TABLE IF NOT EXISTS movimientos_caja (
 
 -- Usuarios
 INSERT INTO usuarios (nombre, usuario, password, rol) VALUES
-('Administrador',  'admin',       'admin123',  'admin'),
-('Carlos Rueda',   'facturacion', 'fact123',   'facturacion'),
-('Laura Ospina',   'inventario',  'inv123',    'inventario'),
-('Felipe Mora',    'compras',     'comp123',   'compras'),
-('Valentina Cruz', 'vendedor',    'vend123',   'vendedor');
+('Administrador',    'admin',        'admin123',    'admin'),
+('Carlos Rueda',     'facturacion',  'fact123',     'facturacion'),
+('Laura Ospina',     'inventario',   'inv123',      'inventario'),
+('Felipe Mora',      'compras',      'comp123',     'compras'),
+('Valentina Cruz',   'vendedor',     'vend123',     'vendedor'),
+('Mariana Rojas',    'contabilidad', 'cont123',     'contabilidad'),
+('Pedro Mesa',       'cajero',       'cajero123',   'cajero');
 
 -- Categorias
 INSERT INTO categorias (nombre, descripcion, icono) VALUES
