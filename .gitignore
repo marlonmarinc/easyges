@@ -14,4 +14,9 @@ Thumbs.db
 # Project specific
 /config/conexion.php
 /setup_*.php
-*.sql
+/setup_automatico.php
+/setup_campos_iva.php
+/setup_metodos_pago.php
+
+# Documentation (generated)
+Documentacion_EasyGES.*
