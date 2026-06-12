@@ -76,13 +76,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="sidebar-header"><div class="sidebar-logo"><i class="fa-solid fa-building"></i></div><div class="sidebar-brand"><span class="brand-name">EASYGES</span><span class="brand-sub">Gestión de Ventas</span></div></div>
     <nav class="sidebar-nav">
         <a href="../../dashboard.php" class="nav-item"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a>
+        <a href="index.php" class="nav-item active"><i class="fa-solid fa-building"></i><span>Empresa</span></a>
+        <a href="usuarios.php" class="nav-item"><i class="fa-solid fa-users-gear"></i><span>Usuarios</span></a>
     </nav>
-    <div class="sidebar-footer"><a href="../../auth/logout.php" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></div>
+    <div class="sidebar-footer"><a href="../../dashboard.php" class="btn-logout"><i class="fa-solid fa-arrow-left"></i> Volver</a></div>
 </aside>
 <main class="main-content">
     <header class="topbar"><button class="btn-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button></header>
     <div class="page-content">
-        <div class="page-header"><div><h1 class="page-title"><i class="fa-solid fa-gear"></i> Configuración de la Empresa</h1><p class="page-subtitle">Datos que aparecen en las facturas</p></div></div>
+        <div class="page-header"><div style="display:flex;align-items:center;gap:.75rem;"><h1 class="page-title"><i class="fa-solid fa-building"></i> Empresa</h1><a href="usuarios.php" class="btn" style="background:var(--teal);color:white;padding:.5rem 1rem;border-radius:6px;text-decoration:none;font-size:.85rem;"><i class="fa-solid fa-users-gear"></i> Gestionar Usuarios</a></div><p class="page-subtitle">Datos que aparecen en las facturas</p></div>
         
         <?php if ($msg): ?><div class="alert alert-success"><i class="fa-solid fa-check-circle"></i> <?= $msg ?></div><?php endif; ?>
         <?php if ($error): ?><div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i> <?= $error ?></div><?php endif; ?>
