@@ -134,12 +134,6 @@ $rol_label = $roles_labels[$_SESSION['usuario_rol']] ?? $_SESSION['usuario_rol']
             <span>Contabilidad</span>
         </a>
         <?php endif; ?>
-        <?php if (puedeAccederModulo('admin')): ?>
-        <a href="modules/admin/" class="nav-item">
-            <i class="fa-solid fa-gear"></i>
-            <span>Administración</span>
-        </a>
-        <?php endif; ?>
     </nav>
 
     <div class="sidebar-footer">
@@ -349,12 +343,7 @@ $rol_label = $roles_labels[$_SESSION['usuario_rol']] ?? $_SESSION['usuario_rol']
                         <i class="fa-solid fa-chart-bar"></i>
                         Ver Reportes
                     </a>
-                    <?php if ($_SESSION['usuario_rol'] === 'admin'): ?>
-                    <a href="modules/admin/usuarios.php" class="quick-action-btn">
-                        <i class="fa-solid fa-users-gear"></i>
-                        Gestionar Usuarios
-                    </a>
-                    <?php endif; ?>
+
                 </div>
             </div>
 

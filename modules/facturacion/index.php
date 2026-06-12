@@ -164,13 +164,7 @@ $pendientes = $stmt->fetchColumn();
                 </div>
                 <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
             </div>
-            <div class="stat-card stat-purple">
-                <div class="stat-info">
-                    <span class="stat-label">Electrónicas</span>
-                    <span class="stat-value stat-value-sm"><?= count(array_filter($facturas, fn($f) => $f['cufe'])) ?></span>
-                </div>
-                <div class="stat-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-            </div>
+
         </div>
 
         <div class="filters-card">
